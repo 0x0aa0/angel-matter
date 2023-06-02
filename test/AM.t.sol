@@ -22,7 +22,7 @@ contract AMTest is Test, ERC1155TokenReceiver {
     Antigraviton anti;
 
     function setUp() public {
-        startTime = block.timestamp;
+        startTime = 1;
         am = new AngelMatter(ETHFS_MAINNET, owner, startTime);
         research = am.research();
         anti = am.anti();
@@ -32,7 +32,7 @@ contract AMTest is Test, ERC1155TokenReceiver {
 
     function xtestURI() public {
         am.mint{value: PRICE}(1);
-        console2.log(am.uri(1));
+        console2.log(am.tokenURI(1));
     }
 
     function testMint(uint256 amount) public {
@@ -317,7 +317,7 @@ contract AMTest is Test, ERC1155TokenReceiver {
         am.observe(1, _fillArr(false));
         _boofTransfer(100);
 
-        vm.warp(startTime + 5169600);
+        vm.warp(startTime + 5169599);
         vm.expectRevert();
         am.xe(1);
 
