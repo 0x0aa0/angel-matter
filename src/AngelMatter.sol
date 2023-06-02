@@ -122,7 +122,7 @@ contract AngelMatter is ERC721("Angel Matter", "AM") {
             keccak256(abi.encodePacked(prism[id])) ==
                 0x18dd307dad56bbc1962747ba3045a38d4d58443f58f1cc44ef53fb0c22e75bdf
         );
-        require((block.timestamp - startTime) % 5256000 > 5169600);
+        require(block.timestamp % 5256000 > 5169600);
         redacted[id] = 1;
     }
 
@@ -137,7 +137,7 @@ contract AngelMatter is ERC721("Angel Matter", "AM") {
     function tokenURI(uint256 id) public view override returns (string memory) {
         Params memory params = Params(
             id,
-            seed[id] % 9007199254740991,
+            seed[id],
             prestige[id],
             prism[id],
             ownerOf(id),

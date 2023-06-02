@@ -32,7 +32,7 @@ contract AMTest is Test, ERC1155TokenReceiver {
 
     function xtestURI() public {
         am.mint{value: PRICE}(1);
-        console2.log(am.tokenURI(1));
+        console2.log(am.uri(1));
     }
 
     function testMint(uint256 amount) public {

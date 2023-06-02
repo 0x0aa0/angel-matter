@@ -39,13 +39,14 @@ contract Program {
                     abi.encodePacked(
                         string.concat(
                             "let seed = ",
-                            _params.seed.toString(),
+                            (_params.seed % 9007199254740991).toString(),
                             "; let tim = ",
                             block.timestamp.toString(),
                             "; let ar = ",
                             _params.ar,
                             "; let wal = ",
-                            uint160(_params.wal).toString(),
+                            (uint160(_params.wal) % 9007199254740991)
+                                .toString(),
                             "; let inv = ",
                             _params.inv.toString(),
                             "; let lvl = ",
