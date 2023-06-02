@@ -1,13 +1,14 @@
 // SPDX-License-Identifier: UNLICENSE
 pragma solidity 0.8.20;
 
-import {ERC721} from "../lib/solmate/src/tokens/ERC721.sol";
 import {Program, Params} from "./Program.sol";
+import {ERC721} from "../lib/solmate/src/tokens/ERC721.sol";
 import {Antigraviton} from "./Antigraviton.sol";
 import {Research} from "./Research.sol";
 import {LibString} from "../lib/solady/src/utils/LibString.sol";
+import {ERC2981} from "lib/openzeppelin-contracts/contracts/token/common/ERC2981.sol";
 
-contract AngelMatter is ERC721("Angel Matter", "AM") {
+contract AngelMatter is ERC721("Angel Matter", "AM"), ERC2981 {
     uint256 constant SUPPLY = 3333;
     uint256 constant PRICE = 0.0333 ether;
     uint256 constant COLLISION = 3333333 ether;
@@ -41,12 +42,14 @@ contract AngelMatter is ERC721("Angel Matter", "AM") {
         program = new Program(_fileStore);
         owner = _owner;
         startTime = _startTime;
+
+        _setDefaultRoyalty(_owner, 333);
     }
 
     function mint(uint256 _amount) external payable {
-        require(startTime <= block.timestamp);
+        require(startTime <= block.timestamp || msg.sender == owner);
+        require(msg.value == _amount * PRICE || msg.sender == owner);
         require(currentId + _amount <= SUPPLY);
-        require(msg.value == _amount * PRICE);
         uint256 i;
         for (i; i < _amount; ) {
             unchecked {
@@ -194,5 +197,15 @@ contract AngelMatter is ERC721("Angel Matter", "AM") {
         require(msg.sender == owner);
         (bool succ, ) = owner.call{value: address(this).balance}("");
         require(succ);
+    }
+
+    function supportsInterface(
+        bytes4 interfaceId
+    ) public view override(ERC721, ERC2981) returns (bool) {
+        return
+            interfaceId == 0x01ffc9a7 ||
+            interfaceId == 0x80ac58cd ||
+            interfaceId == 0x5b5e139f ||
+            interfaceId == 0x2a55205a;
     }
 }
