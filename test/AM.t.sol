@@ -9,6 +9,8 @@ import {ERC1155TokenReceiver} from "lib/solmate/src/tokens/ERC1155.sol";
 
 contract AMTest is Test, ERC1155TokenReceiver {
     address constant ETHFS_MAINNET = 0x9746fD0A77829E12F8A9DBe70D7a322412325B91;
+    address constant ETHFS_TESTNET = 0x5E348d0975A920E9611F8140f84458998A53af94;
+
     uint256 constant PRICE = 0.0333 ether;
     uint256 constant COLLISION = 3333333;
 
@@ -23,7 +25,7 @@ contract AMTest is Test, ERC1155TokenReceiver {
 
     function setUp() public {
         startTime = 1;
-        am = new AngelMatter(ETHFS_MAINNET, owner, startTime);
+        am = new AngelMatter(ETHFS_TESTNET, owner, startTime);
         research = am.research();
         anti = am.anti();
 

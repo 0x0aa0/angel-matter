@@ -9,6 +9,9 @@ contract Research is ERC1155 {
 
     Collision immutable collision;
 
+    string public name = "Angel Matter Research";
+    string public symbol = "AMR";
+
     constructor(address _fileStore) {
         angel = msg.sender;
         collision = new Collision(_fileStore);

@@ -11,7 +11,7 @@ contract Collision {
 
     IFileStore fileStore;
     string desc =
-        '"description": "In a far away parallel universe an advanced civilization built a computer around a star and escaped into a simulated reality. After some immeasurable amount of time these facts were forgotten and after another immeasurable amount of time that star began to die. Even so, life Inside this simulation progressed, and on one planet some of that life progressed enough to form a government. You are the new member of a mysterious project under a secret agency of this government researching the elementary particles that make up your universe.",';
+        '"description":"In a far away parallel universe an advanced civilization built a computer around a star and escaped into a simulated reality. After some immeasurable amount of time these facts were forgotten and after another immeasurable amount of time that star began to die. Even so, life Inside this simulation progressed, and on one planet some of that life progressed enough to form a government. You are the new member of a mysterious project under a secret agency of this government researching the elementary particles that make up your universe.",';
 
     constructor(address _fileStore) {
         fileStore = IFileStore(_fileStore);
@@ -60,7 +60,7 @@ contract Collision {
                         )
                     )
                 ),
-                '"'
+                '"}'
             );
     }
 
@@ -71,7 +71,7 @@ contract Collision {
                 Base64.encode(
                     abi.encodePacked(
                         string.concat(
-                            '"name":"< ',
+                            '{"name":"< ',
                             _id > 0 ? _id.toString() : "...",
                             ' >",',
                             desc,
