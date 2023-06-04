@@ -19,7 +19,6 @@ contract Deploy is Script {
         vm.startBroadcast();
 
         am = new AngelMatter(ETHFS_TESTNET, testMe, startTime);
-        am.mint(10);
 
         vm.stopBroadcast();
     }
