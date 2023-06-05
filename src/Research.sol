@@ -7,7 +7,7 @@ import {Collision} from "./Collision.sol";
 contract Research is ERC1155 {
     address immutable angel;
 
-    Collision immutable collision;
+    Collision public collision;
 
     string public name = "Angel Matter Research";
     string public symbol = "AMR";

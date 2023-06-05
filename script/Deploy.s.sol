@@ -19,6 +19,7 @@ contract Deploy is Script {
         vm.startBroadcast();
 
         am = new AngelMatter(testMe, startTime);
+        am.mint(1);
 
         vm.stopBroadcast();
     }
