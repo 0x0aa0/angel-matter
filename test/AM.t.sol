@@ -25,7 +25,7 @@ contract AMTest is Test, ERC1155TokenReceiver {
 
     function setUp() public {
         startTime = 1;
-        am = new AngelMatter();
+        am = new AngelMatter(owner, startTime);
         research = am.research();
         anti = am.anti();
 

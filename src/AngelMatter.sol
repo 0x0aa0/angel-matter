@@ -36,15 +36,15 @@ contract AngelMatter is ERC721("Angel Matter", "AM"), ERC2981 {
         _;
     }
 
-    constructor() {
+    constructor(address _owner, uint256 _startTime) {
         anti = new Antigraviton();
         research = new Research();
         program = new Program();
 
-        // owner = _owner;
-        // startTime = _startTime;
+        owner = _owner;
+        startTime = _startTime;
 
-        // _setDefaultRoyalty(_owner, 333);
+        _setDefaultRoyalty(_owner, 333);
     }
 
     function mint(uint256 _amount) external payable {
