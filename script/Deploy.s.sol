@@ -18,7 +18,7 @@ contract Deploy is Script {
     function run() external {
         vm.startBroadcast();
 
-        am = new AngelMatter(ETHFS_TESTNET, testMe, startTime);
+        am = new AngelMatter();
 
         vm.stopBroadcast();
     }

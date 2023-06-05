@@ -12,9 +12,9 @@ contract Research is ERC1155 {
     string public name = "Angel Matter Research";
     string public symbol = "AMR";
 
-    constructor(address _fileStore) {
+    constructor() {
         angel = msg.sender;
-        collision = new Collision(_fileStore);
+        collision = new Collision();
     }
 
     function mint(address to, uint256 id) external {
