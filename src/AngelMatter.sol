@@ -13,9 +13,9 @@ contract AngelMatter is ERC721("Angel Matter", "AM"), ERC2981 {
     uint256 constant PRICE = 0.0333 ether;
     uint256 constant COLLISION = 3333333 ether;
 
-    Antigraviton public immutable anti;
-    Research public immutable research;
-    Program public immutable program;
+    Antigraviton public anti;
+    Research public research;
+    Program public program;
 
     address public owner;
     uint256 public startTime;
@@ -36,10 +36,10 @@ contract AngelMatter is ERC721("Angel Matter", "AM"), ERC2981 {
         _;
     }
 
-    constructor(address _fileStore, address _owner, uint256 _startTime) {
+    constructor(address _owner, uint256 _startTime) {
         anti = new Antigraviton();
-        research = new Research(_fileStore);
-        program = new Program(_fileStore);
+        research = new Research();
+        program = new Program();
 
         owner = _owner;
         startTime = _startTime;
