@@ -10,7 +10,7 @@ import {ERC2981} from "lib/openzeppelin-contracts/contracts/token/common/ERC2981
 
 contract AngelMatter is ERC721("Angel Matter", "AM"), ERC2981 {
     uint256 constant SUPPLY = 3333;
-    uint256 constant PRICE = 0.0333 ether;
+    uint256 constant PRICE = 0.01618 ether;
     uint256 constant COLLISION = 3333333 ether;
 
     Antigraviton public anti;

@@ -11,7 +11,7 @@ contract AMTest is Test, ERC1155TokenReceiver {
     address constant ETHFS_MAINNET = 0x9746fD0A77829E12F8A9DBe70D7a322412325B91;
     address constant ETHFS_TESTNET = 0x5E348d0975A920E9611F8140f84458998A53af94;
 
-    uint256 constant PRICE = 0.0333 ether;
+    uint256 constant PRICE = 0.01618 ether;
     uint256 constant COLLISION = 3333333;
 
     address owner = address(1);
