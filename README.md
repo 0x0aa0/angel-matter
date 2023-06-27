@@ -6,4 +6,4 @@ by [quaq.eth](https://twitter.com/0x0aa0)
 
 
 ## Official Contract
-[0xdead8d41881c82b9fc393d812239f41f3c943a37](https://goerli.etherscan.io/address/0xdead8d41881c82b9fc393d812239f41f3c943a37)
+[0xaC213ef6B429672F0FF7E3BA3Da7E896f5D45A4e](https://etherscan.io/address/0xac213ef6b429672f0ff7e3ba3da7e896f5d45a4e#readContract)
